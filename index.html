@@ -12,7 +12,11 @@
   <main class="page">
 
     <header class="hero">
-      <img src="images/hero-image.png" alt="" class="hero__bg" />
+      <picture class="hero__picture">
+        <source media="(max-width: 767px)" srcset="images/hero-mobile.png" />
+        <img src="images/hero-image.png" alt="" class="hero__bg" />
+      </picture>
+
       <div class="hero__overlay"></div>
 
       <div class="hero__brand">

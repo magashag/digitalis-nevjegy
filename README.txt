@@ -1,17 +1,15 @@
-MOBILE FIX V3
+HERO MOBILE FIX
 
-Ez a verzió visszatér a korábbi, jól működő elrendezéshez, és csak a telefonos álló nézetet finomítja.
+A gond nem a CSS finomhangolása volt, hanem az, hogy a széles hero-image.png mobilon túl sokat vágott le a jobb oldalból.
 
-GitHubon cseréld le:
+Ez a csomag egy külön mobilos háttérképet használ:
+images/hero-mobile.png
+
+GitHubon töltsd fel:
 - index.html
 - style.css
 - script.js
+- images/hero-mobile.png
 
-A képekhez nem kell nyúlni:
-- images/hero-image.png
-- images/banner-image.png
-- images/brand-block.png
-- images/profile.jpg
-
-Feltöltés után:
-Commit changes → várj kb. fél-egy percet → telefonon frissítsd újra az oldalt.
+A meglévő desktop hero-image.png maradjon.
+Mobilon automatikusan hero-mobile.png töltődik be, asztali nézetben továbbra is hero-image.png.
