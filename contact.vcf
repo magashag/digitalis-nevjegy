@@ -2,7 +2,9 @@ BEGIN:VCARD
 VERSION:3.0
 N:Magasházi;Gábor;;;
 FN:Magasházi Gábor
-TITLE:Gépészmérnök, Villanyszerelő
-TEL;TYPE=CELL:+36303491831
-EMAIL;TYPE=INTERNET:magashagev@hmail.com
+TITLE:Villanyszerelő vállalkozó
+ORG:MM Electric
+TEL;TYPE=CELL:+36301234567
+EMAIL;TYPE=INTERNET:info@mmelectric.hu
+URL:https://instagram.com/
 END:VCARD
