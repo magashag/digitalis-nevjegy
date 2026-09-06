@@ -1,9 +1,20 @@
-Fájlok a GitHub /images mappába:
+MOBILE V2
 
-hero-image.png     1600×700 px
-banner-image.png   1600×500 px
-brand-block.png    700×260 px, átlátszó háttér
-mm-mark.png        400×400 px, átlátszó háttér
+GitHubon cseréld le:
+- index.html
+- style.css
+- script.js
 
-GitHubon az images mappába töltsd fel őket pontosan ezekkel a fájlnevekkel.
-A korábban megírt HTML/CSS már ezekre a nevekre hivatkozik.
+A képek maradnak az images mappában:
+- hero-image.png
+- banner-image.png
+- brand-block.png
+- profile.jpg
+
+A fő változás:
+- álló telefonon is 3 oszloposak maradnak a kapcsolati kártyák
+- álló telefonon is 3 oszlopos marad a szolgáltatás blokk
+- az alsó három gyorsgomb is egymás mellett marad
+- clamp() alapú reszponzív méretezés
+- külön fekvő telefon optimalizálás
+- nincs vízszintes kilógás
