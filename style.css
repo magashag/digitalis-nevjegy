@@ -3,7 +3,6 @@
   --text:#171d2a;
   --muted:#858fa2;
   --line:#e8ecf2;
-  --yellow:#e5bd12;
   --shadow:0 12px 30px rgba(22,30,44,.075);
 }
 
@@ -42,7 +41,7 @@ svg{display:block}
   background:radial-gradient(circle at 50% 18%,#fff 0%,#fafbfd 42%,#f3f5f8 100%);
 }
 
-/* ---------- HERO ---------- */
+/* HERO */
 .hero{
   position:relative;
   height:280px;
@@ -69,20 +68,7 @@ svg{display:block}
 .hero__overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(90deg,rgba(4,7,12,.24),rgba(4,7,12,.04) 48%,rgba(4,7,12,.20));
-}
-
-.hero__brand{
-  position:absolute;
-  z-index:2;
-  top:18px;
-  left:16px;
-  width:170px;
-}
-
-.hero__brand img{
-  width:100%;
-  height:auto;
+  background:linear-gradient(90deg,rgba(4,7,12,.18),rgba(4,7,12,.02) 48%,rgba(4,7,12,.20));
 }
 
 .hero__services{
@@ -105,10 +91,10 @@ svg{display:block}
   height:3px;
   margin-top:6px;
   border-radius:99px;
-  background:var(--blue);
+  background:linear-gradient(90deg,#ffd60a,#ffcc00);
 }
 
-/* ---------- PROFILE ---------- */
+/* PROFILE */
 .profile-shell{
   position:relative;
   z-index:3;
@@ -117,8 +103,8 @@ svg{display:block}
 
 .profile-shell__curve{
   position:absolute;
-  left:50%;
   top:0;
+  left:50%;
   width:132%;
   height:118px;
   transform:translateX(-50%);
@@ -141,7 +127,7 @@ svg{display:block}
   overflow:hidden;
   border-radius:50%;
   background:#fff;
-  box-shadow:0 12px 28px rgba(20,28,40,.16);
+  box-shadow:0 12px 28px rgba(20,28,40,.16),0 0 0 1px rgba(255,255,255,.6);
 }
 
 .profile-badge__photo{
@@ -155,39 +141,34 @@ svg{display:block}
 .profile{
   position:relative;
   z-index:2;
-  padding:142px 16px 12px;
+  padding:142px 16px 14px;
   text-align:center;
   background:var(--page);
 }
 
 .profile h1{
   margin:0;
+  color:#172033;
   font-size:31px;
+  font-weight:750;
   line-height:1.05;
   letter-spacing:-1px;
-  font-weight:750;
-  color:#172033;
 }
 
 .profile__role{
-  margin:9px 0 7px;
-  color:#8791a5;
+  margin:10px 0 0;
+  color:#778295;
   font-size:16px;
-}
-
-.profile__company{
-  margin:0;
-  font-size:19px;
-  font-weight:750;
+  font-weight:450;
 }
 
 .profile__tagline{
-  margin:7px 0 0;
-  color:#8791a5;
+  margin:8px 0 0;
+  color:#929bad;
   font-size:14px;
 }
 
-/* ---------- CONTACT 3 OSZLOP ---------- */
+/* CONTACT */
 .contact-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -200,14 +181,17 @@ svg{display:block}
   min-height:142px;
   padding:15px 7px 12px;
   border-radius:22px;
-  background:#fff;
+  background:rgba(255,255,255,.94);
   box-shadow:var(--shadow);
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   text-align:center;
+  transition:transform .18s ease,box-shadow .18s ease;
 }
+
+.contact-card:active{transform:scale(.97)}
 
 .contact-icon{
   width:52px;
@@ -248,14 +232,14 @@ svg{display:block}
   overflow-wrap:anywhere;
 }
 
-/* ---------- SERVICES 3 OSZLOP ---------- */
+/* SERVICES */
 .services-card{
   display:grid;
   grid-template-columns:1fr 1px 1fr 1px 1fr;
   align-items:center;
+  min-height:132px;
   margin:14px 12px 0;
   padding:18px 10px;
-  min-height:132px;
   border-radius:23px;
   background:#fff;
   box-shadow:var(--shadow);
@@ -268,10 +252,10 @@ svg{display:block}
   align-items:center;
   justify-content:center;
   gap:7px;
-  text-align:center;
   color:#6c7688;
   font-size:11px;
   line-height:1.25;
+  text-align:center;
 }
 
 .service-item svg{
@@ -290,7 +274,7 @@ svg{display:block}
   background:var(--line);
 }
 
-/* ---------- BANNER ---------- */
+/* BANNER */
 .banner{
   position:relative;
   height:152px;
@@ -336,7 +320,7 @@ svg{display:block}
   height:3px;
   margin:14px 0 11px;
   border-radius:99px;
-  background:var(--yellow);
+  background:#ffcc00;
 }
 
 .banner__content p{
@@ -345,7 +329,7 @@ svg{display:block}
   letter-spacing:1.35px;
 }
 
-/* ---------- QUICK 3 OSZLOP ---------- */
+/* QUICK LINKS */
 .quick-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -365,7 +349,10 @@ svg{display:block}
   align-items:center;
   justify-content:center;
   text-align:center;
+  transition:transform .18s ease;
 }
+
+.quick-card:active{transform:scale(.97)}
 
 .quick-icon{
   width:40px;
@@ -390,6 +377,7 @@ svg{display:block}
 .quick-icon--instagram{
   background:radial-gradient(circle at 70% 72%,#ffd600 0 12%,#ff8400 28%,#ff0069 46%,#d300c5 63%,#7638fa 79%,#4f5bd5 100%);
 }
+
 .quick-icon--instagram svg{stroke:#fff}
 
 .quick-card strong{
@@ -404,29 +392,37 @@ svg{display:block}
   font-size:9px;
 }
 
-/* ---------- FOOTER ---------- */
+/* FOOTER */
 .footer{
-  padding:28px 18px 26px;
+  padding:30px 18px 28px;
   text-align:center;
 }
 
 .footer strong{
   display:block;
+  color:#303746;
   font-size:16px;
+  font-weight:650;
 }
 
 .footer span{
   display:block;
-  margin-top:7px;
-  color:#8791a3;
+  margin-top:6px;
+  color:#7f899b;
   font-size:12px;
 }
 
-/* ---------- EXTRA KESKENY TELEFON ---------- */
+.footer small{
+  display:block;
+  margin-top:10px;
+  color:#a0a8b7;
+  font-size:10px;
+}
+
 @media (max-width:360px){
-  .hero__brand{width:145px}
-  .hero__services{font-size:8.5px;right:8px}
+  .hero__services{right:8px;font-size:8.5px}
   .profile h1{font-size:28px}
+  .profile__role{font-size:14px}
   .contact-grid,.quick-grid{gap:7px}
   .contact-card{padding-left:4px;padding-right:4px}
   .contact-card strong{font-size:10.5px}
@@ -435,19 +431,15 @@ svg{display:block}
   .quick-card small{font-size:8px}
 }
 
-/* ---------- FEKVŐ TELEFON / KISEBB TABLET ---------- */
 @media (min-width:560px) and (max-width:767px){
   .hero{height:300px}
-  .hero__brand{width:215px;left:24px;top:22px}
-  .hero__services{font-size:12px;right:24px;top:28px}
+  .hero__services{top:28px;right:24px;font-size:12px}
   .profile-badge__ring{width:138px;height:138px}
   .profile{padding-top:160px}
   .profile h1{font-size:38px}
-  .contact-grid,.services-card,.quick-grid,.banner{
-    margin-left:20px;
-    margin-right:20px;
-  }
+  .profile__role{font-size:20px}
   .contact-grid{padding-left:20px;padding-right:20px}
+  .services-card,.banner,.quick-grid{margin-left:20px;margin-right:20px}
   .contact-card{min-height:160px}
   .contact-icon{width:62px;height:62px}
   .contact-icon svg{width:30px;height:30px}
@@ -462,19 +454,10 @@ svg{display:block}
   .quick-card small{font-size:10px}
 }
 
-/* ---------- DESKTOP ---------- */
 @media (min-width:768px){
   .hero{height:420px}
 
-  .hero__bg{
-    object-position:center 44%;
-  }
-
-  .hero__brand{
-    top:34px;
-    left:56px;
-    width:300px;
-  }
+  .hero__bg{object-position:center 44%}
 
   .hero__services{
     top:48px;
@@ -490,9 +473,7 @@ svg{display:block}
   }
 
   .profile-shell{margin-top:-112px}
-
   .profile-shell__curve{height:215px}
-
   .profile-badge{top:20px}
 
   .profile-badge__ring{
@@ -501,9 +482,7 @@ svg{display:block}
     padding:8px;
   }
 
-  .profile{
-    padding:198px 32px 18px;
-  }
+  .profile{padding:198px 32px 20px}
 
   .profile h1{
     font-size:64px;
@@ -511,12 +490,14 @@ svg{display:block}
   }
 
   .profile__role{
-    margin:18px 0 10px;
+    margin-top:18px;
     font-size:30px;
   }
 
-  .profile__company{font-size:32px}
-  .profile__tagline{font-size:24px;margin-top:14px}
+  .profile__tagline{
+    margin-top:14px;
+    font-size:20px;
+  }
 
   .contact-grid{
     gap:16px;
@@ -542,12 +523,16 @@ svg{display:block}
   }
 
   .contact-card strong{font-size:22px}
-  .contact-card small{font-size:15px;margin-top:10px}
+
+  .contact-card small{
+    margin-top:10px;
+    font-size:15px;
+  }
 
   .services-card{
+    min-height:170px;
     margin:24px 34px 0;
     padding:28px 14px;
-    min-height:170px;
     border-radius:30px;
   }
 
@@ -569,13 +554,9 @@ svg{display:block}
     border-radius:30px;
   }
 
-  .banner__content{
-    padding:36px 46px;
-  }
+  .banner__content{padding:36px 46px}
 
-  .banner__content h2{
-    font-size:34px;
-  }
+  .banner__content h2{font-size:34px}
 
   .banner__content i{
     width:72px;
@@ -614,10 +595,16 @@ svg{display:block}
   .quick-card strong{font-size:17px}
   .quick-card small{font-size:13px}
 
-  .footer{
-    padding:38px 24px 30px;
+  .footer{padding:40px 24px 32px}
+  .footer strong{font-size:20px}
+
+  .footer span{
+    margin-top:8px;
+    font-size:15px;
   }
 
-  .footer strong{font-size:20px}
-  .footer span{font-size:15px;margin-top:10px}
+  .footer small{
+    margin-top:12px;
+    font-size:12px;
+  }
 }
