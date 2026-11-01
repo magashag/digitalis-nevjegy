@@ -1,1427 +1,170 @@
 :root {
-  --page: #f4f6fa;
-  --page-2: #ffffff;
-
-  --text: #171d2a;
-  --muted: #7f899b;
-
-  --line: #e8ecf2;
-
+  --bg: #f2f4f7;
+  --surface: rgba(255,255,255,.88);
+  --text: #17191d;
+  --muted: #6d747f;
+  --line: rgba(18,25,35,.09);
   --blue: #0a84ff;
-  --yellow: #ffcc00;
-
-  --shadow:
-    0 12px 30px
-    rgba(22, 30, 44, 0.075);
+  --blue-soft: rgba(10,132,255,.10);
+  --shadow: 0 28px 80px rgba(33,42,54,.14);
 }
 
-
-/* ===========================
-   ALAP
-=========================== */
-
-* {
-  box-sizing: border-box;
-}
-
-
-html {
-  margin: 0;
-  padding: 0;
-
-  scroll-behavior: smooth;
-
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
 body {
   margin: 0;
-  padding: 0;
-
-  min-width: 320px;
-
-  background: #e8ecf1;
-
+  font-family: Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--text);
-
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "SF Pro Text",
-    "Segoe UI",
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-a {
-  color: inherit;
-
-  text-decoration: none;
-
-  -webkit-tap-highlight-color: transparent;
-}
-
-
-img {
-  display: block;
-
-  max-width: 100%;
-}
-
-
-svg {
-  display: block;
-}
-
-
-.page {
-  width: 100%;
-
-  max-width: 1024px;
-
-  min-height: 100vh;
-
-  margin: 0 auto;
-
-  overflow: hidden;
-
   background:
-    radial-gradient(
-      circle at 50% 20%,
-      #ffffff 0%,
-      #fafbfd 42%,
-      #f3f5f8 100%
-    );
+    radial-gradient(circle at 20% 0%, #ffffff 0, transparent 35%),
+    linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
+  -webkit-font-smoothing: antialiased;
 }
 
+.page-shell {
+  min-height: 100svh;
+  padding: 28px 18px calc(28px + env(safe-area-inset-bottom));
+  display: grid;
+  place-items: center;
+}
 
-/* ===========================
-   HERO
-=========================== */
+.card {
+  width: min(100%, 440px);
+  border: 1px solid rgba(255,255,255,.9);
+  background: var(--surface);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border-radius: 32px;
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
 
 .hero {
-  position: relative;
-
-  width: 100%;
-
-  height: 280px;
-
-  overflow: hidden;
-
-  background: #05080d;
-}
-
-
-.hero__picture {
-  position: absolute;
-
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-}
-
-
-.hero__bg {
-  position: absolute;
-
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  object-position: center center;
-}
-
-
-.hero__overlay {
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(4, 7, 12, 0.24),
-      rgba(4, 7, 12, 0.02) 48%,
-      rgba(4, 7, 12, 0.22)
-    );
-}
-
-
-.hero__services {
-  position: absolute;
-
-  z-index: 3;
-
-  top: 22px;
-  right: 14px;
-
   display: flex;
-
-  flex-direction: column;
-
-  gap: 4px;
-
-  color: white;
-
-  font-size: 10px;
-
-  font-weight: 650;
-
-  line-height: 1.2;
-
-  letter-spacing: 0.4px;
-
-  text-shadow:
-    0 2px 8px
-    rgba(0, 0, 0, 0.28);
+  gap: 18px;
+  align-items: center;
 }
 
-
-.hero__services i {
-  display: block;
-
-  width: 54px;
-  height: 3px;
-
-  margin-top: 5px;
-
-  border-radius: 999px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #ffd60a,
-      #ffb700
-    );
+.avatar-wrap {
+  flex: 0 0 auto;
+  width: 92px;
+  height: 92px;
+  border-radius: 26px;
+  padding: 3px;
+  background: linear-gradient(145deg, rgba(10,132,255,.95), rgba(10,132,255,.20));
+  box-shadow: 0 12px 32px rgba(10,132,255,.18);
 }
 
-
-/* ===========================
-   PROFIL
-=========================== */
-
-.profile-section {
-  position: relative;
-
-  z-index: 10;
-
+.avatar {
   width: 100%;
-
-  margin-top: -64px;
-
-  background: var(--page);
-}
-
-
-.profile-curve {
-  position: absolute;
-
-  z-index: 1;
-
-  top: 0;
-  left: 50%;
-
-  width: 135%;
-  height: 118px;
-
-  transform:
-    translateX(-50%);
-
-  border-radius:
-    50% 50% 0 0 /
-    100% 100% 0 0;
-
-  background: var(--page);
-
-  pointer-events: none;
-}
-
-
-/* PROFILKÉP KÜLSŐ */
-
-.profile-photo-wrapper {
-  position: absolute;
-
-  z-index: 50;
-
-  top: -4px;
-  left: 50%;
-
-  width: 124px;
-  height: 124px;
-
-  transform:
-    translateX(-50%);
-
+  height: 100%;
   display: block;
-
-  opacity: 1;
-
-  visibility: visible;
-}
-
-
-/* FEHÉR KERET */
-
-.profile-photo-ring {
-  position: relative;
-
-  z-index: 51;
-
-  width: 124px;
-  height: 124px;
-
-  padding: 5px;
-
-  border-radius: 50%;
-
-  background: white;
-
-  box-shadow:
-    0 14px 32px
-    rgba(10, 18, 32, 0.20),
-    0 0 0 1px
-    rgba(255, 255, 255, 0.9);
-
-  overflow: hidden;
-}
-
-
-/* PROFILKÉP */
-
-.profile-photo {
-  position: relative;
-
-  z-index: 52;
-
-  display: block !important;
-
-  width: 100% !important;
-  height: 100% !important;
-
-  min-width: 100%;
-  min-height: 100%;
-
-  opacity: 1 !important;
-
-  visibility: visible !important;
-
-  border-radius: 50%;
-
   object-fit: cover;
-
-  object-position:
-    center 32%;
-
-  background: #d9dde3;
+  border-radius: 23px;
+  background: #e9edf2;
 }
 
-
-/* PROFIL SZÖVEG */
-
-.profile-content {
-  position: relative;
-
-  z-index: 5;
-
-  width: 100%;
-
-  padding:
-    142px
-    16px
-    14px;
-
-  text-align: center;
-
-  background: var(--page);
+.identity { min-width: 0; }
+.eyebrow {
+  margin: 0 0 7px;
+  font-size: 12px;
+  letter-spacing: .22em;
+  font-weight: 700;
+  color: var(--blue);
 }
 
-
-.profile-content h1 {
+h1 {
   margin: 0;
-
-  color: #172033;
-
-  font-size: 31px;
-
-  font-weight: 750;
-
-  line-height: 1.05;
-
-  letter-spacing: -1px;
+  font-size: clamp(26px, 6vw, 34px);
+  line-height: 1.06;
+  letter-spacing: -.035em;
 }
 
-
-.profile-role {
-  margin:
-    10px
-    0
-    0;
-
-  color: #778295;
-
-  font-size: 16px;
-
-  font-weight: 450;
-
-  line-height: 1.3;
-}
-
-
-.profile-tagline {
-  margin:
-    8px
-    0
-    0;
-
-  color: #929bad;
-
+.location {
+  margin: 9px 0 0;
+  color: var(--muted);
   font-size: 14px;
-
-  line-height: 1.3;
 }
 
-
-/* ===========================
-   KAPCSOLAT
-=========================== */
-
-.contact-grid {
+.actions {
   display: grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(0, 1fr)
-    );
-
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-
-  padding:
-    14px
-    12px
-    4px;
-
-  background: var(--page);
+  margin-top: 26px;
 }
 
-
-.contact-card {
-  min-width: 0;
-
-  min-height: 142px;
-
-  padding:
-    15px
-    7px
-    12px;
-
-  border-radius: 22px;
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.96
-    );
-
-  box-shadow:
-    var(--shadow);
-
+.action {
+  min-height: 78px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.72);
+  color: var(--text);
+  text-decoration: none;
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   justify-content: center;
-
-  text-align: center;
-
-  transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease;
-}
-
-
-.contact-card:active {
-  transform:
-    scale(0.97);
-}
-
-
-.contact-icon {
-  width: 52px;
-  height: 52px;
-
-  margin-bottom: 11px;
-
-  border-radius: 15px;
-
-  display: grid;
-
-  place-items: center;
-
-  color: white;
-}
-
-
-.contact-icon svg {
-  width: 26px;
-  height: 26px;
-
-  fill: none;
-
-  stroke:
-    currentColor;
-
-  stroke-width: 1.9;
-
-  stroke-linecap: round;
-
-  stroke-linejoin: round;
-}
-
-
-.contact-icon--phone {
-  background:
-    linear-gradient(
-      145deg,
-      #46d36b,
-      #1fb04a
-    );
-}
-
-
-.contact-icon--mail {
-  background:
-    linear-gradient(
-      145deg,
-      #56a5ff,
-      #2e78ea
-    );
-}
-
-
-.contact-icon--contact {
-  background:
-    linear-gradient(
-      145deg,
-      #aab2be,
-      #7d8695
-    );
-}
-
-
-.contact-card strong {
-  width: 100%;
-
-  color: #222936;
-
-  font-size: 12px;
-
-  font-weight: 650;
-
-  line-height: 1.15;
-}
-
-
-.contact-card small {
-  width: 100%;
-
-  margin-top: 6px;
-
-  color: #858fa2;
-
-  font-size: 9px;
-
-  line-height: 1.2;
-
-  overflow-wrap: anywhere;
-}
-
-
-/* ===========================
-   SZOLGÁLTATÁSOK
-=========================== */
-
-.services-card {
-  display: grid;
-
-  grid-template-columns:
-    1fr
-    1px
-    1fr
-    1px
-    1fr;
-
-  align-items: center;
-
-  min-height: 132px;
-
-  margin:
-    14px
-    12px
-    0;
-
-  padding:
-    18px
-    10px;
-
-  border-radius: 23px;
-
-  background: white;
-
-  box-shadow:
-    var(--shadow);
-}
-
-
-.service-item {
-  min-width: 0;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: center;
-
   gap: 7px;
-
-  color: #6c7688;
-
-  font-size: 11px;
-
-  line-height: 1.25;
-
-  text-align: center;
-}
-
-
-.service-item svg {
-  width: 32px;
-  height: 32px;
-
-  fill: none;
-
-  stroke: #121821;
-
-  stroke-width: 1.7;
-
-  stroke-linecap: round;
-
-  stroke-linejoin: round;
-}
-
-
-.service-divider {
-  width: 1px;
-
-  height: 74px;
-
-  background:
-    var(--line);
-}
-
-
-/* ===========================
-   BANNER
-=========================== */
-
-.banner {
-  position: relative;
-
-  height: 152px;
-
-  margin:
-    16px
-    12px
-    0;
-
-  overflow: hidden;
-
-  border-radius: 23px;
-
-  background: #111;
-
-  box-shadow:
-    var(--shadow);
-}
-
-
-.banner-bg {
-  position: absolute;
-
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  object-position:
-    center 55%;
-}
-
-
-.banner-overlay {
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(6, 9, 13, 0.93),
-      rgba(6, 9, 13, 0.72) 44%,
-      rgba(6, 9, 13, 0.12) 78%
-    );
-}
-
-
-.banner-content {
-  position: relative;
-
-  z-index: 2;
-
-  height: 100%;
-
-  padding:
-    19px
-    18px;
-
-  color: white;
-}
-
-
-.banner-content h2 {
-  margin: 0;
-
-  font-size: 24px;
-
-  line-height: 1.14;
-
-  letter-spacing: -0.6px;
-}
-
-
-.banner-content i {
-  display: block;
-
-  width: 40px;
-  height: 3px;
-
-  margin:
-    14px
-    0
-    11px;
-
-  border-radius: 999px;
-
-  background:
-    #ffcc00;
-}
-
-
-.banner-content p {
-  margin: 0;
-
-  font-size: 7.5px;
-
-  font-weight: 550;
-
-  letter-spacing:
-    1.35px;
-}
-
-
-/* ===========================
-   GYORS GOMBOK
-=========================== */
-
-.quick-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      minmax(0, 1fr)
-    );
-
-  gap: 10px;
-
-  margin:
-    16px
-    12px
-    0;
-}
-
-
-.quick-card {
-  min-width: 0;
-
-  min-height: 98px;
-
-  padding:
-    12px
-    6px;
-
-  border-radius: 21px;
-
-  background: white;
-
-  box-shadow:
-    var(--shadow);
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: center;
-
-  text-align: center;
-
-  transition:
-    transform 0.18s ease;
-}
-
-
-.quick-card:active {
-  transform:
-    scale(0.97);
-}
-
-
-.quick-icon {
-  width: 40px;
-  height: 40px;
-
-  margin-bottom: 8px;
-
-  border-radius: 12px;
-
-  display: grid;
-
-  place-items: center;
-
-  background:
-    #eef1f5;
-}
-
-
-.quick-icon svg {
-  width: 22px;
-  height: 22px;
-
-  fill: none;
-
-  stroke:
-    #181e28;
-
-  stroke-width:
-    1.8;
-
-  stroke-linecap:
-    round;
-
-  stroke-linejoin:
-    round;
-}
-
-
-.quick-icon--instagram {
-  background:
-    radial-gradient(
-      circle at 70% 72%,
-      #ffd600 0 12%,
-      #ff8400 28%,
-      #ff0069 46%,
-      #d300c5 63%,
-      #7638fa 79%,
-      #4f5bd5 100%
-    );
-}
-
-
-.quick-icon--instagram svg {
-  stroke: white;
-}
-
-
-.quick-card strong {
-  width: 100%;
-
-  color: #202733;
-
-  font-size: 11px;
-
-  line-height: 1.15;
-
-  font-weight: 650;
-}
-
-
-.quick-card small {
-  margin-top: 4px;
-
-  color: #8791a3;
-
-  font-size: 9px;
-}
-
-
-/* ===========================
-   FOOTER
-=========================== */
-
-.footer {
-  padding:
-    30px
-    18px
-    28px;
-
-  text-align: center;
-}
-
-
-.footer strong {
-  display: block;
-
-  color: #303746;
-
-  font-size: 16px;
-
-  font-weight: 650;
-}
-
-
-.footer span {
-  display: block;
-
-  margin-top: 6px;
-
-  color: #7f899b;
-
   font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  transition: transform .18s ease, background .18s ease;
 }
 
+.action:active { transform: scale(.97); }
+.action.primary {
+  background: var(--blue);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 12px 28px rgba(10,132,255,.24);
+}
+.icon { font-size: 22px; line-height: 1; }
 
-.footer small {
-  display: block;
-
-  margin-top: 10px;
-
-  color: #a0a8b7;
-
-  font-size: 10px;
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin: 26px 0 8px;
 }
 
+.detail-row {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+.detail-row:last-child { border-bottom: 0; }
+.detail-row .label { color: var(--muted); }
+.detail-row a { color: var(--text); text-decoration: none; }
 
-/* ===========================
-   EXTRA KESKENY TELEFON
-=========================== */
-
-@media (max-width: 360px) {
-
-  .hero__services {
-    right: 8px;
-
-    font-size: 8.5px;
-  }
-
-
-  .profile-content h1 {
-    font-size: 28px;
-  }
-
-
-  .profile-role {
-    font-size: 14px;
-  }
-
-
-  .contact-grid,
-  .quick-grid {
-    gap: 7px;
-  }
-
-
-  .contact-card {
-    padding-left: 4px;
-
-    padding-right: 4px;
-  }
-
-
-  .contact-card strong {
-    font-size: 10.5px;
-  }
-
-
-  .contact-card small {
-    font-size: 8px;
-  }
-
-
-  .quick-card strong {
-    font-size: 9.5px;
-  }
-
-
-  .quick-card small {
-    font-size: 8px;
-  }
-
+.services {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+.services span {
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: #0568c9;
+  font-size: 12px;
+  font-weight: 600;
 }
 
-
-/* ===========================
-   NAGYOBB MOBIL / KIS TABLET
-=========================== */
-
-@media
-(min-width: 560px)
-and
-(max-width: 767px) {
-
-  .hero {
-    height: 300px;
-  }
-
-
-  .hero__services {
-    top: 28px;
-
-    right: 24px;
-
-    font-size: 12px;
-  }
-
-
-  .profile-photo-wrapper,
-  .profile-photo-ring {
-    width: 138px;
-
-    height: 138px;
-  }
-
-
-  .profile-content {
-    padding-top: 160px;
-  }
-
-
-  .profile-content h1 {
-    font-size: 38px;
-  }
-
-
-  .profile-role {
-    font-size: 20px;
-  }
-
-
-  .contact-grid {
-    padding-left: 20px;
-
-    padding-right: 20px;
-  }
-
-
-  .services-card,
-  .banner,
-  .quick-grid {
-    margin-left: 20px;
-
-    margin-right: 20px;
-  }
-
-
-  .contact-card {
-    min-height: 160px;
-  }
-
-
-  .contact-icon {
-    width: 62px;
-
-    height: 62px;
-  }
-
-
-  .contact-icon svg {
-    width: 30px;
-
-    height: 30px;
-  }
-
-
-  .contact-card strong {
-    font-size: 15px;
-  }
-
-
-  .contact-card small {
-    font-size: 11px;
-  }
-
-
-  .service-item {
-    font-size: 14px;
-  }
-
-
-  .service-item svg {
-    width: 38px;
-
-    height: 38px;
-  }
-
-
-  .banner {
-    height: 190px;
-  }
-
-
-  .banner-content h2 {
-    font-size: 30px;
-  }
-
-
-  .quick-card {
-    min-height: 112px;
-  }
-
-
-  .quick-card strong {
-    font-size: 14px;
-  }
-
-
-  .quick-card small {
-    font-size: 10px;
-  }
-
+.footer-note {
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
 }
 
-
-/* ===========================
-   DESKTOP
-=========================== */
-
-@media (min-width: 768px) {
-
-  .hero {
-    height: 420px;
-  }
-
-
-  .hero__bg {
-    object-position:
-      center 44%;
-  }
-
-
-  .hero__services {
-    top: 48px;
-
-    right: 58px;
-
-    gap: 8px;
-
-    font-size: 18px;
-  }
-
-
-  .hero__services i {
-    width: 86px;
-
-    height: 4px;
-
-    margin-top: 10px;
-  }
-
-
-  .profile-section {
-    margin-top: -112px;
-  }
-
-
-  .profile-curve {
-    height: 215px;
-  }
-
-
-  .profile-photo-wrapper {
-    top: 20px;
-
-    width: 178px;
-
-    height: 178px;
-  }
-
-
-  .profile-photo-ring {
-    width: 178px;
-
-    height: 178px;
-
-    padding: 8px;
-  }
-
-
-  .profile-content {
-    padding:
-      198px
-      32px
-      20px;
-  }
-
-
-  .profile-content h1 {
-    font-size: 64px;
-
-    letter-spacing:
-      -1.8px;
-  }
-
-
-  .profile-role {
-    margin-top: 18px;
-
-    font-size: 30px;
-  }
-
-
-  .profile-tagline {
-    margin-top: 14px;
-
-    font-size: 20px;
-  }
-
-
-  .contact-grid {
-    gap: 16px;
-
-    padding:
-      28px
-      34px
-      8px;
-  }
-
-
-  .contact-card {
-    min-height: 190px;
-
-    padding:
-      28px
-      18px
-      22px;
-
-    border-radius: 30px;
-  }
-
-
-  .contact-icon {
-    width: 76px;
-
-    height: 76px;
-
-    margin-bottom: 18px;
-
-    border-radius: 22px;
-  }
-
-
-  .contact-icon svg {
-    width: 35px;
-
-    height: 35px;
-  }
-
-
-  .contact-card strong {
-    font-size: 22px;
-  }
-
-
-  .contact-card small {
-    margin-top: 10px;
-
-    font-size: 15px;
-  }
-
-
-  .services-card {
-    min-height: 170px;
-
-    margin:
-      24px
-      34px
-      0;
-
-    padding:
-      28px
-      14px;
-
-    border-radius: 30px;
-  }
-
-
-  .service-item {
-    gap: 10px;
-
-    font-size: 18px;
-  }
-
-
-  .service-item svg {
-    width: 44px;
-
-    height: 44px;
-  }
-
-
-  .service-divider {
-    height: 92px;
-  }
-
-
-  .banner {
-    height: 218px;
-
-    margin:
-      28px
-      34px
-      0;
-
-    border-radius: 30px;
-  }
-
-
-  .banner-content {
-    padding:
-      36px
-      46px;
-  }
-
-
-  .banner-content h2 {
-    font-size: 34px;
-  }
-
-
-  .banner-content i {
-    width: 72px;
-
-    height: 4px;
-
-    margin:
-      26px
-      0
-      20px;
-  }
-
-
-  .banner-content p {
-    font-size: 11px;
-
-    letter-spacing:
-      2.7px;
-  }
-
-
-  .quick-grid {
-    gap: 16px;
-
-    margin:
-      30px
-      34px
-      0;
-  }
-
-
-  .quick-card {
-    min-height: 116px;
-
-    padding:
-      20px
-      12px;
-
-    border-radius: 26px;
-  }
-
-
-  .quick-icon {
-    width: 54px;
-
-    height: 54px;
-
-    margin-bottom: 10px;
-
-    border-radius: 16px;
-  }
-
-
-  .quick-icon svg {
-    width: 29px;
-
-    height: 29px;
-  }
-
-
-  .quick-card strong {
-    font-size: 17px;
-  }
-
-
-  .quick-card small {
-    font-size: 13px;
-  }
-
-
-  .footer {
-    padding:
-      40px
-      24px
-      32px;
-  }
-
-
-  .footer strong {
-    font-size: 20px;
-  }
-
-
-  .footer span {
-    margin-top: 8px;
-
-    font-size: 15px;
-  }
-
-
-  .footer small {
-    margin-top: 12px;
-
-    font-size: 12px;
-  }
-
+@media (max-width: 390px) {
+  .card { padding: 22px; border-radius: 26px; }
+  .hero { align-items: flex-start; }
+  .avatar-wrap { width: 80px; height: 80px; border-radius: 22px; }
+  .avatar { border-radius: 19px; }
+  .actions { grid-template-columns: 1fr; }
+  .action { min-height: 56px; flex-direction: row; }
 }
